@@ -1,14 +1,10 @@
-process.stdout.write('prompt > ');
+process.stdout.write('prompt > '); // same
 
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
-
+  const pwd = require('./pwd');
   if (cmd === 'pwd') {
-    process.stdout.write(__filename); // path including file
-    // process.stdout.write(__dirname); // path up to file (not including)
-    // process.stdout.write(process.cwd()); // same as dirname
+    pwd();
   }
-
-  // process.stdout.write('You typed: ' + cmd);
-  // process.stdout.write('\nprompt > ');
-})
+  process.stdout.write('\nprompt > ');
+  });
